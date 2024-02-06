@@ -1,0 +1,49 @@
+/* NumberScroll.css */
+.number-input {
+    width: 250px; /* Adjust the width as needed */
+    padding: 8px;
+    font-size: 16px;
+  }
+  
+  .box {
+    height: 48px;
+    font-size: 16px;
+    line-height: 48px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+    /* transition: transform 0.3s ease-in-out; */
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+  }
+  
+  /* .box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.3);
+  } */
+  
+  .current {
+    background-color: #909291;
+    color: white;
+    font-size: large;
+    font-weight: bold;
+  }
+
+  .neighbour{
+    background-color: #474848;
+    color: white; 
+    font-size: small;
+  }
+  
+  /* Add bounce effect on scroll events */
+  
+  /* .number-scroll {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    transition: transform 0.4s ease-in-out;
+  }
+  
+  .number-scroll:hover {
+    -webkit-transform: translate3d(0, -4px, 0);
+    transform: translate3d(0, -4px, 0);
+    transition: transform 0.2s ease-in-out;
+  } */
+  
