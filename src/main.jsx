@@ -51,7 +51,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/test2",
-        element: <SimpleNum key={2} task={`Task2`} numValue={1} numMaxValue={100} title={'Task 2: Enter 87 out of 100 with Variant A'} nextTask={`/numScroll`} compare={true}/>
+        element: <SimpleNum key={2} task={`Task2`} numValue={1} numMaxValue={100} title={'Task 2: Enter Marks 87 with Variant A'} nextTask={`/numScroll`} compare={true}/>
       },
       {
         path: "/numScroll",
@@ -59,7 +59,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/markScroll",
-        element: <NumberScroll key={4} task={`Task4`} numValue={1} numMaxValue={99} title={'Task 4: Enter Marks 66 out of 100 with Variant B'} nextTask={`/submit/${true}`} compare={true}/>        
+        element: <NumberScroll key={4} task={`Task4`} numValue={1} numMaxValue={99} title={'Task 4: Enter Marks 66 with Variant B'} nextTask={`/submit/${true}`} compare={true}/>        
       },
       {
           path: "/submit/:showForm",
