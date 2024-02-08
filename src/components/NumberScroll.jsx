@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import './NumberScroll.css';
 import { Link } from 'react-router-dom';
 
-const NumberScroll = ({numValue , numMaxValue, title, nextTask, compare}) => {
+const NumberScroll = ({key, numValue , numMaxValue, title, nextTask, compare}) => {
   const totalElements = numMaxValue; // Updated total elements
   const [currentIndex, setCurrentIndex] = useState(numValue);
   const [hide, setHide] = useState(true);
@@ -33,7 +33,8 @@ const NumberScroll = ({numValue , numMaxValue, title, nextTask, compare}) => {
 
   useEffect(() => {
     const scrollContainer = document.getElementById('scrollContainer');
-      const handleTouchStart = (event) => {
+    let touchStartY = 0;
+    const handleTouchStart = (event) => {
     touchStartY = event.touches[0].clientY;
   };
 
@@ -47,8 +48,6 @@ const NumberScroll = ({numValue , numMaxValue, title, nextTask, compare}) => {
   const handleTouchEnd = () => {
     // Additional touch end logic if needed
   };
-
-  let touchStartY = 0;
 
   scrollContainer.addEventListener('touchstart', handleTouchStart);
   scrollContainer.addEventListener('touchmove', handleTouchMove);
@@ -152,13 +151,13 @@ const NumberScroll = ({numValue , numMaxValue, title, nextTask, compare}) => {
         </div>
         { compare ? <div className="flex justify-center my-8" style={{display: defaultValue==66?"block":"none"}}>
           <Link to={nextTask}>
-            <button onClick={() => {alert(`Elapsed time variant B : ${elapsedTime} seconds`)}} className="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg transition duration-300 ease-in-out transform hover:scale-105">
+            <button onClick={() => {alert(`Elapsed time for Task ${key} variant B : ${elapsedTime} seconds`)}} className="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg transition duration-300 ease-in-out transform hover:scale-105">
               Submit
             </button>
           </Link>
         </div> :       <div className="flex justify-center my-8" style={{display: defaultValue>=20?"block":"none"}}>
           <Link to={nextTask}>
-            <button onClick={() => {alert(`Elapsed time variant B : ${elapsedTime} seconds`)}} className="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg transition duration-300 ease-in-out transform hover:scale-105">
+            <button onClick={() => {alert(`Elapsed time for Task ${key} variant B : ${elapsedTime} seconds`)}} className="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg transition duration-300 ease-in-out transform hover:scale-105">
               Submit
             </button>
           </Link>

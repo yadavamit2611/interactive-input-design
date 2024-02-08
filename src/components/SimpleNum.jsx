@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './NumberScroll.css';
 import { Link } from 'react-router-dom';
 
-const SimpleNum = ({numValue, numMaxValue, title, nextTask, compare}) => {
+const SimpleNum = ({key, numValue, numMaxValue, title, nextTask, compare}) => {
   const [normalNumber, setNormalNumber] = useState(numValue);
   const [startTime, setStartTime] = useState(null);
   const [elapsedTime, setElapsedTime] = useState(0);
@@ -72,7 +72,7 @@ const SimpleNum = ({numValue, numMaxValue, title, nextTask, compare}) => {
               Submit
             </button> */}
           <Link to={nextTask}>
-            <button onClick={() => {alert(`Elapsed time variant A : ${elapsedTime} seconds`)}} className="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg transition duration-300 ease-in-out transform hover:scale-105">
+            <button onClick={() => {alert(`Elapsed time for Task ${key} variant A : ${elapsedTime} seconds`)}} className="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg transition duration-300 ease-in-out transform hover:scale-105">
               Next Task
             </button>
           </Link>
@@ -82,7 +82,7 @@ const SimpleNum = ({numValue, numMaxValue, title, nextTask, compare}) => {
                     Submit
                   </button> */}
                 <Link to={nextTask}>
-                  <button onClick={() => {alert(`Elapsed time variant A : ${elapsedTime} seconds`)}} className="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg transition duration-300 ease-in-out transform hover:scale-105">
+                  <button onClick={() => {alert(`Elapsed time for Task ${key} variant A : ${elapsedTime} seconds`)}} className="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg transition duration-300 ease-in-out transform hover:scale-105">
                     Next Task
                   </button>
                 </Link>
