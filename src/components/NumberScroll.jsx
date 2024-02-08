@@ -131,7 +131,7 @@ const NumberScroll = ({task, numValue , numMaxValue, title, nextTask, compare}) 
       <h1 className='text-md sm:text-lg md:text-xl lg:text-2xl xl:text-3xl mb-4'> {`${title}`}</h1>
       <div className="p-2 flex flex-col justify-items-center">
       <label htmlFor="weightnumber" className="block text-white text-md bg-gray-800 p-2 rounded-t-md">
-        Weight Input (kg)
+       {compare ? "Marks out of 100 ": "Weight Input(Kg)"}
       </label>
             <input
               type="number"
