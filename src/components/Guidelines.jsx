@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 
 function Guidelines() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50 p-2">
-      <div className="mx-auto p-6 bg-white shadow-lg rounded-lg w-1/2">
+    <div className="flex flex-col items-center justify-center bg-gray-50 p-2">
+      <div className="mx-auto p-6 bg-white drop-shadow-2xl rounded-lg sm:w-auto lg:w-1/2">
         <h1 className="text-3xl font-semibold text-center mb-6">Test Guidelines</h1>
         <div className="mb-8">
           <h2 className="text-xl font-semibold mb-2">Test Description:</h2>
@@ -15,8 +15,8 @@ function Guidelines() {
           </p>
         </div>
         <div className="mb-8 bg-blue-100 rounded-md">
-          <h2 className="text-xl font-semibold mb-2">Test Instructions:</h2>
-          <ul className="list-disc list-inside text-gray-700">
+          <h2 className="text-xl font-semibold mb-2 p-2">Test Instructions:</h2>
+          <ul className="list-disc list-inside text-gray-700 p-2">
             <li>Task 1: Use the simple number input to perform the given task.</li>
             <li>Task 2: Use the proposed input method to perform the same task.</li>
             <li>Note the time and accuracy for each task.</li>

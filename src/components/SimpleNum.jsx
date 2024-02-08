@@ -6,6 +6,8 @@ const SimpleNum = () => {
   const [normalNumber, setNormalNumber] = useState(1);
   const [startTime, setStartTime] = useState(null);
   const [elapsedTime, setElapsedTime] = useState(0);
+  // const [btnClicked, setBtnClicked] = useState(false);
+  // const lineStyle = btnClicked ? "line-through md:block" : " md:block";
 
   useEffect(() => {
     if (startTime) {
@@ -27,8 +29,8 @@ const SimpleNum = () => {
 
   return (
     <div className='flex flex-col justify-center items-center bg-purple-100 p-6 rounded-lg shadow-md'>
-      <h1 className='font-mono text-md sm:text-lg md:text-xl lg:text-2xl xl:text-3xl mb-4'>
-        Task 1 : Enter your weight with variant A
+      <h1 className='text-md sm:text-lg md:text-xl lg:text-2xl xl:text-3xl mb-2'>
+        Task 1 : Enter weight with variant A
       </h1>
       <div className='p-2 flex flex-col justify-items-center'>
         <label htmlFor="weightnumber" className="block text-white text-md bg-gray-800 p-2 rounded-t-md">
@@ -47,14 +49,22 @@ const SimpleNum = () => {
         {startTime && (
           <p className="text-sm text-gray-500">Time Elapsed: {elapsedTime} seconds</p>
         )}
+      </div>
+      <div className='flex justify-center mx-auto bg-purple-300 rounded-md mt-2'>
+          <ul className='list-disc list-inside text-gray-700 p-2 hidden md:block'>
+            <li className='md:block'>You may use Scroll<span className='hidden md:block'>or Keypad</span></li>
+          </ul>
+        </div>
         <div className="flex justify-center text-center my-8" style={{display: normalNumber>=20?"block":"none"}} >
+          {/* <button onClick={() => {console.log(`elapsed time variant A : ${elapsedTime}`); setBtnClicked(true)}} className="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg transition duration-300 ease-in-out transform hover:scale-105">
+              Submit
+            </button> */}
           <Link to={`/numScroll/${elapsedTime}`}>
-            <button onClick={() => console.log(`elapsed time variant A : ${elapsedTime}`)} className="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg transition duration-300 ease-in-out transform hover:scale-105">
+            <button onClick={() => {alert(`Elapsed time variant A : ${elapsedTime} seconds`)}} className="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg transition duration-300 ease-in-out transform hover:scale-105">
               Next Task
             </button>
           </Link>
         </div>
-      </div>
     </div>
   );
 }

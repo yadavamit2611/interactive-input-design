@@ -120,7 +120,7 @@ const NumberScroll = () => {
 
   return (
     <div className='flex flex-col justify-center items-center bg-green-100 p-6 rounded-lg shadow-md'>
-      <h1 className='font-mono text-md sm:text-lg md:text-xl lg:text-2xl xl:text-3xl mb-4'>  Task 2 : Enter your weight with variant B</h1>
+      <h1 className='font-mono text-md sm:text-lg md:text-xl lg:text-2xl xl:text-3xl mb-4'>  Task 2 : Enter weight with variant B</h1>
       <div className="p-2 flex flex-col justify-items-center">
       <label htmlFor="weightnumber" className="block text-white text-md bg-gray-800 p-2 rounded-t-md">
         Weight Input (kg)
@@ -146,9 +146,14 @@ const NumberScroll = () => {
           <p className="text-sm text-gray-500">Time Elapsed: {elapsedTime} seconds</p>
         )}
       </div>
+      <div className='flex justify-center mx-auto bg-green-300 rounded-md mt-2'>
+          <ul className='list-disc list-inside text-gray-700 p-2'>
+            <li className='block'>You may use Scroll or Keypad</li>
+          </ul>
+        </div>
       <div className="flex justify-center my-8" style={{display: normalWeight>=20?"block":"none"}}>
           <Link to={`/submit`}>
-            <button onClick={() => {console.log(`elapsed time variant B : ${elapsedTime}`)}} className="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg transition duration-300 ease-in-out transform hover:scale-105">
+            <button onClick={() => {alert(`Elapsed time variant B : ${elapsedTime} seconds`)}} className="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg transition duration-300 ease-in-out transform hover:scale-105">
               Submit
             </button>
           </Link>

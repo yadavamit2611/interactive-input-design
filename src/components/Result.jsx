@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Result = () => {
   return (
     <div className="flex flex-col items-center justify-center">
-      <div className="mx-auto p-6 bg-white shadow-md rounded-lg text-center w-1/2">
+      <div className="mx-auto p-6 bg-white drop-shadow-2xl rounded-lg text-center sm:w-auto lg:w-1/2 md:w-2/5">
         <h1 className="text-3xl font-semibold mb-4">Thank You for Participating!</h1>
         <p className="text-gray-700 mb-6">
           We appreciate your participation in the test. 
