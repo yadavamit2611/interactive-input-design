@@ -1,5 +1,5 @@
 import { createContext } from "react";
-const TimeContext = createContext({asks : {
+const TimeContext = createContext({tasks : {
     task1: "elapsed time for task 1 : ",
     task2: "elapsed time for task 3 : ",
     task3: "elapsed time for task 3 : ",

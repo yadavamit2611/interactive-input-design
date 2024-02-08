@@ -19,7 +19,8 @@ function Guidelines() {
           <ul className="list-disc list-inside text-gray-700 p-2">
             <li>Task 1 and 2: Use the simple number input to perform the given task.</li>
             <li>Task 3 and 4: Use the proposed input method to perform the given task.</li>
-            <li>Note the time taken (it will be displayed after each task is completed/submitted) and accuracy for each task.</li>
+            <li>Note the time taken and accuracy for each task.</li>
+            <li> After completing all the tasks you may take screenshot of the result for your reference (useful for filling the questionnaire)</li>
           </ul>
         </div>
         <div className="mb-8">

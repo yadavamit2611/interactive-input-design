@@ -15,7 +15,7 @@ const Result = () => {
               <p className="text-gray-700 mb-6">
                 We appreciate your participation in the test. 
                 <br />
-                Please take a moment to fill in the NASA Task Load Index (NASA-TLX) questionnaire by clicking the link below:
+                Please take a screenshot of the time invested in the tasks which will be useful to fill in the questionnaire by clicking the link below:
               </p>
               <ul className='list-disc list-inside text-gray-700 p-2 mb-4'>
                 {Object.entries(tasks).map(([key, value]) => (

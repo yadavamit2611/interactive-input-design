@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
 import {
   createBrowserRouter,
   RouterProvider,
@@ -13,7 +12,6 @@ import Header from './components/Header.jsx';
 import Footer from './components/Footer.jsx';
 import Guidelines from './components/Guidelines.jsx';
 import Result from './components/Result.jsx';
-import { Link } from 'react-router-dom';
 import Error from './components/Error.jsx';
 import TimeContext from './utility/TimeContext';
 
