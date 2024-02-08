@@ -1,0 +1,10 @@
+import { createContext } from "react";
+const TimeContext = createContext({asks : {
+    task1: "elapsed time for task 1 : ",
+    task2: "elapsed time for task 3 : ",
+    task3: "elapsed time for task 3 : ",
+    task4: "elapsed time for task 4 : "
+}});
+
+TimeContext.displayName = "TimeContext";
+export default TimeContext;

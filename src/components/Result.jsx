@@ -1,8 +1,10 @@
-import React from 'react';
+import React, {useContext } from 'react'
 import { Link, useParams } from 'react-router-dom';
+import TimeContext from '../utility/TimeContext';
 
 const Result = () => {
   const {showForm} = useParams();
+  const {tasks, setTasks} = useContext(TimeContext);
   return (
     <div className="flex flex-col items-center justify-center">
       <div className="mx-auto p-6 bg-white drop-shadow-2xl rounded-lg text-center sm:w-auto lg:w-1/2 md:w-2/5">
@@ -15,6 +17,13 @@ const Result = () => {
                 <br />
                 Please take a moment to fill in the NASA Task Load Index (NASA-TLX) questionnaire by clicking the link below:
               </p>
+              <ul className='list-disc list-inside text-gray-700 p-2 mb-4'>
+                {Object.entries(tasks).map(([key, value]) => (
+                  <li key={key}>
+                    {value}
+                  </li>
+                ))}
+            </ul>
               <Link to="https://forms.gle/v4F4PsLKgGA5G5KJ9" className="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg transition duration-300 ease-in-out transform hover:scale-105">
               Fill Questionnaire
             </Link>

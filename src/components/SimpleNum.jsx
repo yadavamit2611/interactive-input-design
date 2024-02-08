@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import './NumberScroll.css';
 import { Link } from 'react-router-dom';
+import TimeContext from '../utility/TimeContext';
 
-const SimpleNum = ({key, numValue, numMaxValue, title, nextTask, compare}) => {
+const SimpleNum = ({task, numValue, numMaxValue, title, nextTask, compare}) => {
   const [normalNumber, setNormalNumber] = useState(numValue);
   const [startTime, setStartTime] = useState(null);
   const [elapsedTime, setElapsedTime] = useState(0);
+  const {tasks, setTasks} = useContext(TimeContext);
   // const [btnClicked, setBtnClicked] = useState(false);
   // const lineStyle = btnClicked ? "line-through md:block" : " md:block";
 
@@ -40,6 +42,14 @@ const SimpleNum = ({key, numValue, numMaxValue, title, nextTask, compare}) => {
     }
   };
 
+  const updateTime = (key, newValue) => {
+    console.log(key, newValue);
+    setTasks(tasks => ({
+      ...tasks,
+      [key]: newValue
+    }));
+  };
+
   return (
     <div className='flex flex-col justify-center items-center bg-purple-100 p-6 rounded-lg shadow-md'>
       <h1 className='text-md sm:text-lg md:text-xl lg:text-2xl xl:text-3xl mb-2'>
@@ -72,7 +82,7 @@ const SimpleNum = ({key, numValue, numMaxValue, title, nextTask, compare}) => {
               Submit
             </button> */}
           <Link to={nextTask}>
-            <button onClick={() => {alert(`Elapsed time for Task ${key} variant A : ${elapsedTime} seconds`)}} className="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg transition duration-300 ease-in-out transform hover:scale-105">
+            <button onClick={() => updateTime('task2',"Elapsed time for "+task+" is "+elapsedTime+" seconds")} className="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg transition duration-300 ease-in-out transform hover:scale-105">
               Next Task
             </button>
           </Link>
@@ -82,7 +92,7 @@ const SimpleNum = ({key, numValue, numMaxValue, title, nextTask, compare}) => {
                     Submit
                   </button> */}
                 <Link to={nextTask}>
-                  <button onClick={() => {alert(`Elapsed time for Task ${key} variant A : ${elapsedTime} seconds`)}} className="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg transition duration-300 ease-in-out transform hover:scale-105">
+                  <button onClick={() => updateTime('task1',"Elapsed time for "+task+" is "+elapsedTime+" seconds")} className="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg transition duration-300 ease-in-out transform hover:scale-105">
                     Next Task
                   </button>
                 </Link>
