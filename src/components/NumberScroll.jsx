@@ -1,15 +1,14 @@
 // NumberScroll.js
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
 import './NumberScroll.css';
 import { Link } from 'react-router-dom';
 
-const NumberScroll = () => {
-  const totalElements = 500; // Updated total elements
-  const [currentIndex, setCurrentIndex] = useState(1);
+const NumberScroll = ({numValue , numMaxValue, title, nextTask, compare}) => {
+  const totalElements = numMaxValue; // Updated total elements
+  const [currentIndex, setCurrentIndex] = useState(numValue);
   const [hide, setHide] = useState(true);
-  const [normalWeight, setNormalWeight] = useState(1);
-  const {simElapsed} = useParams();
+  const [defaultValue, setdefaultValue] = useState(numValue);
+  //  const {simElapsed} = useParams();
 
   const [startTime, setStartTime] = useState(null);
   const [elapsedTime, setElapsedTime] = useState(0);
@@ -82,22 +81,22 @@ const NumberScroll = () => {
   }, []);
 
   useEffect(() => {
-    setNormalWeight(currentIndex);
+    setdefaultValue(currentIndex);
   }, [currentIndex]);
 
   const handleContainerDisplay = (mode) => {
     if(mode === 1){
       setHide(true);
       setCurrentIndex((prevIndex) => Math.max(prevIndex - 1, 1));
-      setNormalWeight(currentIndex-1);
+      setdefaultValue(currentIndex-1);
     }else if(mode === 2){
       setHide(true);
       setCurrentIndex((prevIndex) => Math.min(prevIndex + 1, totalElements));
-      setNormalWeight(currentIndex+1);    
+      setdefaultValue(currentIndex+1);    
     }else{
       setHide(true);
       setCurrentIndex(currentIndex);
-      setNormalWeight(currentIndex);
+      setdefaultValue(currentIndex);
     }
   }
 
@@ -106,13 +105,13 @@ const NumberScroll = () => {
     if(e.target.value !== ''){
       const value = parseInt(e.target.value, 10);
       if (!isNaN(value) && value >= 1 && value <= totalElements) {
-        setNormalWeight(value);
+        setdefaultValue(value);
         setCurrentIndex(value);
         setHide(false);
       }
     }else{
       // console.log('inside NaN', e.target.value);
-      setNormalWeight(e.target.value);
+      setdefaultValue(e.target.value);
       setCurrentIndex(e.target.value);
       setHide(true);
     }
@@ -120,16 +119,16 @@ const NumberScroll = () => {
 
   return (
     <div className='flex flex-col justify-center items-center bg-green-100 p-6 rounded-lg shadow-md'>
-      <h1 className='font-mono text-md sm:text-lg md:text-xl lg:text-2xl xl:text-3xl mb-4'>  Task 2 : Enter weight with variant B</h1>
+      <h1 className='text-md sm:text-lg md:text-xl lg:text-2xl xl:text-3xl mb-4'> {`${title}`}</h1>
       <div className="p-2 flex flex-col justify-items-center">
       <label htmlFor="weightnumber" className="block text-white text-md bg-gray-800 p-2 rounded-t-md">
         Weight Input (kg)
       </label>
             <input
               type="number"
-              id="normalWeight"
-              name="normalWeight"
-              value={normalWeight}
+              id="defaultValue"
+              name="defaultValue"
+              value={defaultValue}
               max={500}
               onFocus={() => {if(currentIndex !== ''){setHide(false)}; startTimer()} }
               onWheel={(e) => e.target.blur()}
@@ -151,13 +150,20 @@ const NumberScroll = () => {
             <li className='block'>You may use Scroll or Keypad</li>
           </ul>
         </div>
-      <div className="flex justify-center my-8" style={{display: normalWeight>=20?"block":"none"}}>
-          <Link to={`/submit`}>
+        { compare ? <div className="flex justify-center my-8" style={{display: defaultValue==66?"block":"none"}}>
+          <Link to={nextTask}>
             <button onClick={() => {alert(`Elapsed time variant B : ${elapsedTime} seconds`)}} className="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg transition duration-300 ease-in-out transform hover:scale-105">
               Submit
             </button>
           </Link>
-        </div>
+        </div> :       <div className="flex justify-center my-8" style={{display: defaultValue>=20?"block":"none"}}>
+          <Link to={nextTask}>
+            <button onClick={() => {alert(`Elapsed time variant B : ${elapsedTime} seconds`)}} className="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg transition duration-300 ease-in-out transform hover:scale-105">
+              Submit
+            </button>
+          </Link>
+        </div> }
+
     </div>
   );
 };

@@ -11,7 +11,7 @@ function App() {
       <SimpleNum />
     </div>
     <div className="text-center w-full text-xl p-3 md:w-1/2 sm:w-full">
-      <NumberScroll />
+      <NumberScroll/>
     </div>
   </div>
   <div className="flex justify-center my-8 space-x-5">
