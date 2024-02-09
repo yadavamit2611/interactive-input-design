@@ -146,9 +146,9 @@ const NumberScroll = ({task, numValue , numMaxValue, title, nextTask, compare}) 
               className='number-input border-2 text-lg p-2 w-full focus:outline-none focus:border-green-500'
             />
         <div id='scrollContainer' style={{ display: hide==false?"block":"none"}}>
-        <div id='decNeighbour' className='box neighbour text-center' onClick={() => handleContainerDisplay(1)}>{currentIndex - 1} kg</div>
-        <div id='currentNeighbour' className='box current text-center' onClick={() =>  handleContainerDisplay(0)}>{currentIndex} kg</div>
-        <div id='incNeighbour' className='box neighbour text-center rounded-b-md' onClick={() =>  handleContainerDisplay(2)}>{currentIndex + 1} kg</div>
+        <div id='decNeighbour' className='box neighbour text-center' onClick={() => handleContainerDisplay(1)}>{currentIndex - 1}</div>
+        <div id='currentNeighbour' className='box current text-center' onClick={() =>  handleContainerDisplay(0)}>{currentIndex}</div>
+        <div id='incNeighbour' className='box neighbour text-center rounded-b-md' onClick={() =>  handleContainerDisplay(2)}>{currentIndex + 1}</div>
     </div>
     {startTime && (
           <p className="text-sm text-gray-500">Time Elapsed: {elapsedTime} seconds</p>
